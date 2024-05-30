@@ -17,8 +17,9 @@
                 <h1>To Do List</h1>
                 <div>
                     <ul>
-                        <li v-for="(item,i) in toDoList" :class="(item.done === true) ? 'itemDone' : ''" @click="invertDone(i)">
-                            {{item.text}}
+                        <li v-for="(item,i) in toDoList">
+                            <p :class="(item.done === true) ? 'itemDone' : ''" @click="invertDone(i)">{{item.text}}</p>
+                            <p @click="removeTask(i)">X</p>
                         </li>
                     </ul>
                 </div>
