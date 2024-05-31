@@ -15,7 +15,8 @@ createApp({
                 {
                     text: 'Pasta',
                     done: false,
-                }]
+                },],
+                newTaskInput : '',
         }
             
     },
@@ -25,6 +26,15 @@ createApp({
         },
         removeTask: function(index){
             this.toDoList.splice(index,1);
+        },
+        addNewTask: function(newTask){
+            let newTaskObject = {
+                text: newTask,
+                done: false,
+            }
+
+            this.toDoList.push(newTaskObject);
+            this.newTaskInput = '';
         }
     }
 }).mount('#app')

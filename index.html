@@ -15,14 +15,22 @@
         <main>
             <section id="app">
                 <h1>To Do List</h1>
-                <div>
-                    <ul>
-                        <li v-for="(item,i) in toDoList">
-                            <p :class="(item.done === true) ? 'itemDone' : ''" @click="invertDone(i)">{{item.text}}</p>
-                            <p @click="removeTask(i)">X</p>
-                        </li>
-                    </ul>
-                </div>
+                <section>
+                    <div>
+                        <ul>
+                            <li v-for="(item,i) in toDoList">
+                                <p :class="(item.done === true) ? 'itemDone' : ''" @click="invertDone(i)">{{item.text}}</p>
+                                <p @click="removeTask(i)">X</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <label for="toDoInput">New Item:</label>
+                        <input id="toDoInput" type="text" v-model="newTaskInput" @keyup.enter="addNewTask(newTaskInput)">
+                    </div>
+                </section>
             </section>
         </main>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
